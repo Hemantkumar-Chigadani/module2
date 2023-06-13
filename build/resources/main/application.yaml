@@ -1,0 +1,3 @@
+quarkus:
+  arc:
+    exclude-types: com.example.TestFilter

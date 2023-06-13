@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'io.quarkus' version "${quarkusPluginVersion}"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+        vendor = JvmVendorSpec.ADOPTIUM
+    }
+}
+
+dependencies {
+    implementation enforcedPlatform("io.quarkus.platform:quarkus-bom:${quarkusPlatformVersion}")
+    implementation enforcedPlatform("io.quarkus.platform:quarkus-amazon-services-bom:${quarkusPlatformVersion}")
+    implementation 'io.quarkus:quarkus-resteasy'
+    implementation 'io.quarkus:quarkus-amazon-lambda-rest'
+    implementation 'io.quarkus:quarkus-hibernate-validator'
+    implementation 'io.quarkiverse.amazonservices:quarkus-amazon-dynamodb'
+    implementation 'io.quarkiverse.amazonservices:quarkus-amazon-dynamodb-enhanced'
+    implementation 'io.quarkus:quarkus-config-yaml'
+    implementation 'io.quarkus:quarkus-rest-client'
+    implementation 'io.quarkus:quarkus-rest-client-jackson'
+    implementation('com.example:module1:1.0-SNAPSHOT')
+    implementation 'io.quarkus:quarkus-arc'
+}
