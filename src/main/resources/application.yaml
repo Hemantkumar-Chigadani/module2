@@ -1,3 +1,7 @@
 quarkus:
   arc:
     exclude-types: com.example.TestFilter
+
+  class-loading:
+    removed-resources:
+      "com.example:module1": com/example/TestFilter.class
