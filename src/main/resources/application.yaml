@@ -5,3 +5,27 @@ quarkus:
   class-loading:
     removed-resources:
       "com.example:module1": com/example/TestFilter.class
+  native:
+    container-build: true
+    native-image-xmx: 6G
+    builder-image: "quay.io/quarkus/ubi-quarkus-graalvmce-builder-image:22.3-java17"
+    report-exception-stack-traces: true
+  container-image:
+    build: true
+    push: false
+    builder: docker
+    image: module2:test
+  log:
+    file:
+      enable: true
+    level: DEBUG
+    console:
+      enable: true
+      format: "%d{HH:mm:ss} %-5p RequestId:%X{AWSRequestId} XRAY TraceId:%X{_X_AMZN_TRACE_ID} [%c{2.}] (%t) %s%e%n"
+      json:
+#        ~: false
+        print-details: true
+        excluded-keys: [ "loggerClassName", "sourceModuleName", "sourceModuleVersion", "processName" ]
+        additional-field:
+          "service-name":
+            value: module2

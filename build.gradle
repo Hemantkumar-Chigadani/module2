@@ -30,6 +30,14 @@ dependencies {
     implementation 'io.quarkus:quarkus-config-yaml'
     implementation 'io.quarkus:quarkus-rest-client'
     implementation 'io.quarkus:quarkus-rest-client-jackson'
-    implementation('com.example:module1:1.0-SNAPSHOT')
+//    implementation('com.example:module1:1.0-SNAPSHOT')
     implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-amazon-lambda-xray'
+    implementation 'io.quarkus:quarkus-container-image-docker'
+    implementation 'io.quarkus:quarkus-logging-json'
+//    implementation 'io.netty:netty-resolver-dns-native-macos'
+    implementation("org.jboss.logmanager:log4j2-jboss-logmanager")
+
+    testImplementation 'io.quarkus:quarkus-junit5-mockito'
+    testImplementation 'io.rest-assured:rest-assured'
 }
