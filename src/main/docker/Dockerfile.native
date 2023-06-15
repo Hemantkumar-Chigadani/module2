@@ -1,0 +1,7 @@
+FROM  public.ecr.aws/lambda/provided
+
+ADD build/module2-1.0-SNAPSHOT-runner /var/runtime/bootstrap
+RUN chmod ugo+x /var/runtime/bootstrap
+
+# Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
+CMD ["io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest"]
